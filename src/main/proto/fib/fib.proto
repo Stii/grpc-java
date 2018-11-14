@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package fib;
+
+option java_package = "com.proto.fib";
+option java_multiple_files = true;
+
+message Fib {
+    int32 number = 1;
+}
+
+message FibRequest {
+    Fib fib = 1;
+}
+
+message FibResponse {
+    int64 result = 1;
+}
+
+service FibService {
+    rpc Fib(FibRequest) returns (FibResponse) {};
+}
